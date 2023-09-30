@@ -4,6 +4,7 @@ import '../../../features/article/models/article_model.dart';
 import '../../../features/article/widget/article_widget.dart';
 import 'package:shimmer/shimmer.dart';
 import '../models/article_model.dart';
+import 'article_detail_screen.dart';
 
 class ArticleScreen extends StatefulWidget {
   const ArticleScreen({super.key});
@@ -40,7 +41,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 32),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 32),
               child: ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -48,8 +49,9 @@ class _ArticleScreenState extends State<ArticleScreen> {
                 itemBuilder: ((context, index) {
                   return GestureDetector(
                     onTap: () {
+                      
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const ArticleDetailScreen(
+                          builder: (context) =>  const ArticleDetailScreen(source: '',
                               // source: _information[index].sumber)
                               )));
             

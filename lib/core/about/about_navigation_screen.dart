@@ -64,9 +64,10 @@ class _AboutNavigationScreenState extends State<AboutNavigationScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Image.asset(
-                              ImageConstant.logoTextApp,
-                              height: 18,
+                            Text(
+                              "Classification of Waste",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600),
                             ),
                             SizedBox(
                               height: 4,

@@ -1,12 +1,12 @@
 import 'dart:io';
+import 'package:tflite/tflite.dart';
+
 import '../../../core/constants/color_constant.dart';
 
 import '../../../features/detection/models/waste_model.dart';
 
 import '../../../features/detection/screens/detail_screen.dart';
 import 'package:image_picker/image_picker.dart';
-
-import 'package:tflite_flutter/tflite_flutter.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
@@ -124,8 +124,6 @@ class _ScanScreenState extends State<ScanScreen> {
   }
 
   detectImage(File image) async {
-    
-
 
     var output = await Tflite.runModelOnImage(
         path: image.path,
@@ -151,7 +149,9 @@ class _ScanScreenState extends State<ScanScreen> {
   }
 
   pickImage() async {
-    var image = await picker.getImage(source: ImageSource.camera);
+    // var image = await picker.getImage(source: ImageSource.camera);
+    XFile? image = await picker.pickImage(source: ImageSource.gallery);
+        // ImagePicker image = ImagePicker();
     // if(image == null) return null;
 
     setState(() {
@@ -166,7 +166,10 @@ class _ScanScreenState extends State<ScanScreen> {
   }
 
   pickGalleryImage() async {
-    var image = await picker.getImage(source: ImageSource.gallery);
+    // var image = await picker.getImage(source: ImageSource.gallery);
+    XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    // File image = await ImagePicker.pickImage( source: ImageSource.gallery);
+    // ImagePicker image = ImagePicker();
     if (image == null) return null;
 
     setState(() {

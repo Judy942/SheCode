@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
 import '../../../core/constants/color_constant.dart';
 import '../../../core/constants/icon_constant.dart';
@@ -74,15 +75,16 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Image.asset(
-                              ImageConstant.logoTextApp,
-                              height: 18,
+                            Text(
+                              "Waste Classification",
+                              style: const TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.w600),
                             ),
                             const SizedBox(
                               height: 4,
                             ),
                             const Text(
-                              "Herbal Learning",
+                              "The classification of waste",
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.w400),
                             )
