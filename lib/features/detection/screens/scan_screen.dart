@@ -1,5 +1,7 @@
 import 'dart:io';
-import 'package:tflite/tflite.dart';
+// import 'package:tflite/tflite.dart';
+
+import 'package:tflite_flutter/tflite_flutter.dart';
 
 import '../../../core/constants/color_constant.dart';
 
@@ -125,22 +127,28 @@ class _ScanScreenState extends State<ScanScreen> {
 
   detectImage(File image) async {
 
-    var output = await Tflite.runModelOnImage(
-        path: image.path,
-        numResults: 24,
-        threshold: 0.8,
-        imageMean: 224,
-        imageStd: 224);
+// final output = await Interpreter.fromAsset('assets/tf/My_tflite_model.tflite');
+
+
+    // var output = await Tflite.runModelOnImage(
+    //     path: image.path,
+    //     numResults: 24,
+    //     threshold: 0.8,
+    //     imageMean: 224,
+    //     imageStd: 224);
     setState(() {
-      _output = output!;
+      _image = File(image.path);
+      // _output = output!;
       _loading = false;
     });
   }
 
   loadModel() async {
-    await Tflite.loadModel(
-        model: 'assets/tf/model_terakhir.tflite',
-        labels: 'assets/tf/labels_terakhir.txt');
+    Interpreter  _interpreter = await Interpreter.fromAsset('assets/tf/My_tflite_model.tflite');
+    var labels = await rootBundle.loadString('assets/tf/labels.txt');
+    // await Tflite.loadModel(
+    //     model: 'assets/tf/model_terakhir.tflite',
+    //     labels: 'assets/tf/labels_terakhir.txt');
   }
 
   @override
