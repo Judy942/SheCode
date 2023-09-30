@@ -43,6 +43,9 @@ dependencies:
   webview_flutter: ^4.2.2
   image_picker: ^1.0.2
   tflite_flutter: ^0.10.2
+  google_fonts: ^4.0.4
+  qr_flutter: ^4.0.0
+  mobile_scanner: ^3.4.1
 
 dev_dependencies:
   flutter_test:

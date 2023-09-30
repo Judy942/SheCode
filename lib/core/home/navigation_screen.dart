@@ -1,3 +1,5 @@
+import 'package:classification_of_waste/features/detection/screens/scan_screen.dart';
+import 'package:classification_of_waste/features/detection/screens/test/intro.dart';
 import 'package:flutter/material.dart';
 import '../about/about_navigation_screen.dart';
 import '../constants/icon_constant.dart';
@@ -130,10 +132,16 @@ class _NavigationScreenState extends State<NavigationScreen> {
             tooltip: "Miner",
             backgroundColor: ColorConstant.primaryColor,
             onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute( builder: (_) => ArticleScreen()));
-                  // MaterialPageRoute(builder: (_) => ScanScreen(title: "Hele")));
-                  // MaterialPageRoute(builder: (_) => ScanScreen(title: "Hele")));
+              Navigator.push(
+                context,
+                // MaterialPageRoute(builder: (context) => ScanScreen(title: "Judy")),
+                                MaterialPageRoute(builder: (context) => IntroPage()),
+
+              );
+              // Navigator.of(context).push(
+              //   MaterialPageRoute( builder: (_) => ScanScreen()));
+              // MaterialPageRoute(builder: (_) => ScanScreen(title: "Hele")));
+              // MaterialPageRoute(builder: (_) => ScanScreen(title: "Hele")));
             },
             child: ImageIcon(
               Svg(
