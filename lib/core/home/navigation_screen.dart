@@ -135,10 +135,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                                 MaterialPageRoute(builder: (context) => const IntroPage()),
 
               );
-              // Navigator.of(context).push(
-              //   MaterialPageRoute( builder: (_) => ScanScreen()));
-              // MaterialPageRoute(builder: (_) => ScanScreen(title: "Hele")));
-              // MaterialPageRoute(builder: (_) => ScanScreen(title: "Hele")));
+              
             },
             child: const ImageIcon(
               Svg(

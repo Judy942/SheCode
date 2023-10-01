@@ -175,17 +175,12 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
                   Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
-                  // const Text(
-                  //   "Hello",
-                  //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                  // ),
                   SizedBox(
                     height: 10,
                   ),
 
                   Text(
                     "Wellcome to",
-                    
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                   ),
                   SizedBox(
@@ -195,41 +190,11 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
                     "Waste Classification",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
-                  // GestureDetector(
-                  //   onTap: () {
-                  //     Navigator.of(context).push(MaterialPageRoute(
-                  //         // builder: (context) => const ArticleScreen()));
-                  //         builder: (context) => const Text("Wellcome to Waste Classification")));
-                  //   },
-                  //   child: const Text(
-                  //     "Lihat Semua",
-                  //     style: TextStyle(
-                  //         fontSize: 14,
-                  //         fontWeight: FontWeight.w400,
-                  //         color: ColorConstant.primaryColor),
-                  //   ),
-                  // )
+                  
                 ],
               ),
             ),
-            // ListView.builder(
-            //   padding: const EdgeInsets.only(bottom: 24),
-            //   shrinkWrap: true,
-            //   physics: const NeverScrollableScrollPhysics(),
-            //   itemCount: 5,
-            //   itemBuilder: ((context, index) {
-            //     return GestureDetector(
-            //       onTap: () {
-            //         Navigator.of(context).push(MaterialPageRoute(
-            //             builder: (_) => ArticleDetailScreen(
-            //                 source: _information[index].sumber)));
-            //       },
-            //       child: CardArtikel(
-            //         data: _information[index],
-            //       ),
-            //     );
-            // }),
-            // )
+            
           ],
         ),
       ),

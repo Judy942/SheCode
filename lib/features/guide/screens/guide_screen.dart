@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../core/constants/color_constant.dart';
-import '../../../core/home/navigation_screen.dart';
-import '../../../core/constants/image_constant.dart';
-import '../widgets/custom_button.dart';
-import '../widgets/guide_widget.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -14,23 +9,6 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final _controller = PageController();
-  final _pages = const [
-    OnBoardContentWidget(
-      title: "Scan Tanaman",
-      description: "Scan atau ambil foto dari galeri di handphone kamu",
-      image: ImageConstant.onBoarding1,
-    ),
-    OnBoardContentWidget(
-      title: "Dapatkan Hasil",
-      description: "Dapatkan hasil tanaman yang sudah di scan",
-      image: ImageConstant.onBoarding2,
-    ),
-    OnBoardContentWidget(
-      title: "Detail Tanaman",
-      description: "Lihat detail deskripsi dan manfaat tanaman",
-      image: ImageConstant.onBoarding3,
-    ),
-  ];
 
   int _activePage = 0;
 
@@ -63,84 +41,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           },
                           child: const Icon(Icons.arrow_back)),
                     ),
-                    AnimatedOpacity(
-                      opacity: _activePage < _pages.length - 1 ? 1.0 : 0.0,
-                      duration: const Duration(milliseconds: 300),
-                      child: GestureDetector(
-                        onTap: () async {
-                          _controller.animateToPage(
-                            _pages.length - 1,
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeIn,
-                          );
-                        },
-                        child: const Text(
-                          "Skip",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 152),
-            SizedBox(
-              height: 335,
-              child: PageView.builder(
-                scrollBehavior: const ScrollBehavior(),
-                controller: _controller,
-                onPageChanged: (int page) {
-                  setState(() {
-                    _activePage = page;
-                  });
-                },
-                itemCount: _pages.length,
-                itemBuilder: (context, index) => _pages[index],
-              ),
-            ),
-            const SizedBox(height: 74),
-            Wrap(
-              spacing: 10,
-              alignment: WrapAlignment.center,
-              children: List<Widget>.generate(
-                _pages.length,
-                (index) => InkWell(
-                  onTap: () async {
-                    _controller.animateToPage(
-                      index,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeIn,
-                    );
-                  },
-                  child: CircleAvatar(
-                    radius: 5,
-                    backgroundColor: _activePage == index
-                        ? ColorConstant.primaryColor
-                        : Colors.black,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 40),
-            AnimatedOpacity(
-              opacity: _activePage == _pages.length - 1 ? 1.0 : 0.0,
-              duration: const Duration(milliseconds: 300),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: CustomButton(
-                  onPressed: () => {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => const NavigationScreen()))
-                  },
-                  child: const Text("Home"),
-                ),
-              ),
-            ),
+            //        
+                
           ],
         ),
+      ),
+            )
+          ],
+        )
       ),
     );
   }

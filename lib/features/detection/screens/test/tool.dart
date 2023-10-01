@@ -28,10 +28,7 @@ class MyTool extends StatelessWidget {
           children: [
             Icon(icon.icon, color: Colors.white, size: 30),
             const SizedBox(height: 4),
-            // Text(
-            //   text,
-            //   style: Theme.of(context).textTheme.headline6,
-            // ),
+
           ],
         ),
       ),

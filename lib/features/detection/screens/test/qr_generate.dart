@@ -40,13 +40,6 @@ class _QRGenerateState extends State<QRGenerate> {
               const SizedBox(
                 height: 20,
               ),
-              //* show QR code
-              // QrImage(
-              //   data: data,
-              //   size: 230,
-              //   version: QrVersions.auto,
-              // ),
-
 
 
               const SizedBox(
