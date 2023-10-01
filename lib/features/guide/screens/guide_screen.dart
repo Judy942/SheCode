@@ -136,7 +136,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   onPressed: () => {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => NavigationScreen()))
                   },
-                  child: const Text("Kembali ke Home"),
+                  child: const Text("Home"),
                 ),
               ),
             ),

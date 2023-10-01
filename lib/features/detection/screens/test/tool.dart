@@ -4,12 +4,12 @@ class MyTool extends StatelessWidget {
   const MyTool({
     super.key,
     required this.icon,
-    required this.text,
+    // required this.text,
     required this.onPressed,
   });
 
   final Icon icon;
-  final String text;
+  // final String text;
   final Function()? onPressed;
 
   @override
@@ -28,10 +28,10 @@ class MyTool extends StatelessWidget {
           children: [
             Icon(icon.icon, color: Colors.white, size: 30),
             const SizedBox(height: 4),
-            Text(
-              text,
-              style: Theme.of(context).textTheme.headline5,
-            ),
+            // Text(
+            //   text,
+            //   style: Theme.of(context).textTheme.headline6,
+            // ),
           ],
         ),
       ),

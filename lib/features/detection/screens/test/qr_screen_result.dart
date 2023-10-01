@@ -79,7 +79,7 @@ class QrResultPage extends StatelessWidget {
                 //* copy
                 MyTool(
                   icon: const Icon(Icons.copy),
-                  text: "Copy",
+                  // text: "Copy",
                   onPressed: () {
                     HapticFeedback.heavyImpact();
                     Clipboard.setData(
@@ -91,7 +91,7 @@ class QrResultPage extends StatelessWidget {
                 //* share
                 MyTool(
                   icon: const Icon(Icons.share),
-                  text: "Share",
+                  // text: "Share",
                   onPressed: () {
                     HapticFeedback.heavyImpact();
                   },

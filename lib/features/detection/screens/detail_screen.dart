@@ -26,7 +26,7 @@ class _DetailScreenState extends State<DetailScreen> {
         children: [
           Align(
             alignment: Alignment.topCenter,
-            child: Image.asset(ImageConstant.topDetailDecoration),
+            child: Image.asset(ImageConstant.logoApp),
           ),
           Align(
             alignment: Alignment.topLeft,

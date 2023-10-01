@@ -28,7 +28,7 @@ class _AboutNavigationScreenState extends State<AboutNavigationScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(bottom: 40),
-                child: Image.asset(ImageConstant.topHomeDecoration),
+                child: Image.asset(ImageConstant.splashLogo),
               ),
               Positioned(
                 bottom: 10,

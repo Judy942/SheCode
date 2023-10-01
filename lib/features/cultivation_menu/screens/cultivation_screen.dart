@@ -27,7 +27,7 @@ class _CultivationScreenState extends State<CultivationScreen> {
         automaticallyImplyLeading: false,
         leadingWidth: 30,
         title: const Text(
-          "Macam Tanaman",
+          "quizz",
           style: TextStyle(color: Colors.black),
         ),
         elevation: 1.5,

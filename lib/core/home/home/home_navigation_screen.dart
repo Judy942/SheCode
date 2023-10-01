@@ -4,15 +4,10 @@ import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import '../../../core/constants/color_constant.dart';
 import '../../../core/constants/icon_constant.dart';
 import '../../../core/constants/image_constant.dart';
-import '../../../features/article/screens/article_screen.dart';
-
 import '../../../features/cultivation_menu/screens/cultivation_screen.dart';
+import '../../../features/detection/screens/test/qr_generate.dart';
 import '../../../features/guide/screens/guide_screen.dart';
 import '../../../features/waste_processing/waste_processing_screen.dart';
-
-import '../../../features/article/models/article_model.dart';
-import '../../../features/article/screens/article_detail_screen.dart';
-import '../../../features/article/widget/article_widget.dart';
 
 class HomeNavigationScreen extends StatefulWidget {
   const HomeNavigationScreen({super.key});
@@ -22,11 +17,11 @@ class HomeNavigationScreen extends StatefulWidget {
 }
 
 class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
-  final _information = informasi;
+  // final _information = informasi;
   final mapMenu = {
-    IconConstant.cultivationMenu: "Olah Tanaman",
-    IconConstant.quizMenu: "Macam Tanaman",
-    IconConstant.recipesMenu: "Panduan Aplikasi",
+    IconConstant.cultivationMenu: "search",
+    IconConstant.quizMenu: "quizz",
+    IconConstant.recipesMenu: "history",
   };
 
   @override
@@ -39,7 +34,7 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(bottom: 40),
-                child: Image.asset(ImageConstant.topHomeDecoration),
+                child: Image.asset(ImageConstant.splashLogo),
               ),
               Positioned(
                 bottom: 10,
@@ -66,7 +61,7 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
                       children: [
                         Image.asset(
                           ImageConstant.logoApp,
-                          height: 40,
+                          height: 80,
                         ),
                         const SizedBox(
                           width: 16,
@@ -110,11 +105,11 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
                   (index) => GestureDetector(
                         onTap: () {
                           if (mapMenu.values.elementAt(index) ==
-                              "Panduan Aplikasi") {
+                              "search") {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const OnBoardingScreen()));
+                                builder: (context) => const QRGenerate()));
                           } else if (mapMenu.values.elementAt(index) ==
-                              "Macam Tanaman") {
+                              "quizz") {
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const CultivationScreen()));
                           } else {
@@ -170,49 +165,66 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
-            child: Row(
+            child: 
+            // Text(
+            //   "Wellcome to Waste Classification",
+            //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            // ),
+            Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                // const Text(
+                //   "Hello",
+                //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                // ),
+                const SizedBox(
+                  height: 10,
+                ),
+
                 const Text(
-                  "Artikel",
+                  """Wellcome to
+                  
+        Waste Classification""",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const ArticleScreen()));
-                  },
-                  child: const Text(
-                    "Lihat Semua",
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: ColorConstant.primaryColor),
-                  ),
-                )
+                // GestureDetector(
+                //   onTap: () {
+                //     Navigator.of(context).push(MaterialPageRoute(
+                //         // builder: (context) => const ArticleScreen()));
+                //         builder: (context) => const Text("Wellcome to Waste Classification")));
+                //   },
+                //   child: const Text(
+                //     "Lihat Semua",
+                //     style: TextStyle(
+                //         fontSize: 14,
+                //         fontWeight: FontWeight.w400,
+                //         color: ColorConstant.primaryColor),
+                //   ),
+                // )
               ],
             ),
           ),
-          ListView.builder(
-            padding: const EdgeInsets.only(bottom: 24),
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 5,
-            itemBuilder: ((context, index) {
-              return GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (_) => ArticleDetailScreen(
-                          source: _information[index].sumber)));
-                },
-                child: CardArtikel(
-                  data: _information[index],
-                ),
-              );
-            }),
-          ),
+          // ListView.builder(
+          //   padding: const EdgeInsets.only(bottom: 24),
+          //   shrinkWrap: true,
+          //   physics: const NeverScrollableScrollPhysics(),
+          //   itemCount: 5,
+          //   itemBuilder: ((context, index) {
+          //     return GestureDetector(
+          //       onTap: () {
+          //         Navigator.of(context).push(MaterialPageRoute(
+          //             builder: (_) => ArticleDetailScreen(
+          //                 source: _information[index].sumber)));
+          //       },
+          //       child: CardArtikel(
+          //         data: _information[index],
+          //       ),
+          //     );
+            // }),
+          // )
         ],
       ),
-    ));
+      ),
+    );
   }
 }

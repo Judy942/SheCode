@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import './qr_generate.dart';
-import './button.dart';
 
+import './button.dart';
+import './qr_generate.dart';
 import 'qr_scanner.dart';
 
 class IntroPage extends StatelessWidget {
@@ -13,7 +13,7 @@ class IntroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 80.0),
+        padding: const EdgeInsets.only(top: 40.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -21,51 +21,26 @@ class IntroPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18.0),
               child: Image.asset(
-                'assets/images/logo2.png',
-                height: 300,
+                'assets/images/splash.png',
+                // height: 200,
               ),
             ),
 
             const SizedBox(
-              height: 55,
+              height: 25,
             ),
 
             //todo Game title
             Text(
-              "Picture",
+              "Picture scanner",
               style: GoogleFonts.poppins(
-                fontSize: 30,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 3,
               ),
             ),
-            Text(
-              "Scan and Generate",
-              style: GoogleFonts.poppins(
-                fontSize: 30,
-                letterSpacing: 2,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+        
             const Spacer(flex: 1),
-
-            //todo generate button
-            MyButton(
-              text: "Generate QR",
-              onPressed: () {
-                HapticFeedback.heavyImpact();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const QRGenerate(),
-                  ),
-                );
-              },
-              icon: const Icon(
-                Icons.qr_code_scanner_outlined,
-                color: Colors.white,
-              ),
-            ),
 
             const SizedBox(
               height: 15,
@@ -73,7 +48,7 @@ class IntroPage extends StatelessWidget {
 
             //todo scan button
             MyButton(
-              text: "Scan QR",
+              text: "Scan picture",
               onPressed: () {
                 HapticFeedback.vibrate();
                 Navigator.push(
@@ -101,7 +76,7 @@ class IntroPage extends StatelessWidget {
 
             //todo developer details
             Text(
-              "Developed by Vishwa Karthik",
+              "Developed by The Pastels",
               style: GoogleFonts.poppins(
                 color: Colors.black,
                 fontSize: 14,
