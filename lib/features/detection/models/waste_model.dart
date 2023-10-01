@@ -25,13 +25,13 @@ class WasteModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['category'] = this.category;
-    data['image'] = this.image;
-    data['description'] = this.description;
-    data['usage'] = this.usage;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['category'] = category;
+    data['image'] = image;
+    data['description'] = description;
+    data['usage'] = usage;
     return data;
   }
 }

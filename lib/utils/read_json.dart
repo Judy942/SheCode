@@ -17,6 +17,7 @@ class ReadJson {
       print(tempList);
       return tempList;
     } catch (e) {
+      // ignore: avoid_print
       print(e);
     }
     return null;

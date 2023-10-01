@@ -1,8 +1,9 @@
+// ignore_for_file: unused_local_variable, unnecessary_cast
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-import './tool.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

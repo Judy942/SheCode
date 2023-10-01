@@ -1,11 +1,8 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import '../../../core/constants/color_constant.dart';
 
-import '../../../core/constants/image_constant.dart';
-import '../../features/guide/widgets/custom_button.dart';
 
-import '../../features/guide/widgets/guide_widget.dart';
 
 class DetailOlahTanaman extends StatefulWidget {
   const DetailOlahTanaman({super.key});
@@ -15,10 +12,11 @@ class DetailOlahTanaman extends StatefulWidget {
 }
 
 class _DetailOlahTanamanState extends State<DetailOlahTanaman> {
+  // ignore: unused_field
   final _controller = PageController();
  
 
-  int _activePage = 0;
+  // int _activePage = 0;
 
   @override
   Widget build(BuildContext context) {

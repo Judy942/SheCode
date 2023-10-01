@@ -1,10 +1,7 @@
-import 'package:classification_of_waste/features/detection/screens/scan_screen.dart';
 import 'package:classification_of_waste/features/detection/screens/test/intro.dart';
 import 'package:flutter/material.dart';
 import '../about/about_navigation_screen.dart';
 import '../constants/icon_constant.dart';
-import '../home/navigation_screen.dart';
-import '../../features/article/screens/article_screen.dart';
 import '../constants/color_constant.dart';
 
 // import 'package:hele/features/detection/screens/scan_screen.dart';
@@ -56,7 +53,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                     IconButton(
                       iconSize: 30.0,
                       icon: ImageIcon(
-                        Svg(
+                        const Svg(
                           IconConstant.homeNavigation,
                         ),
                         color: _currentIndex == 0
@@ -88,7 +85,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                     IconButton(
                       iconSize: 30.0,
                       icon: ImageIcon(
-                        Svg(IconConstant.aboutAppNavigation),
+                        const Svg(IconConstant.aboutAppNavigation),
                         color: _currentIndex == 1
                             ? ColorConstant.primaryColor
                             : Colors.grey,
@@ -135,7 +132,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
               Navigator.push(
                 context,
                 // MaterialPageRoute(builder: (context) => ScanScreen(title: "Judy")),
-                                MaterialPageRoute(builder: (context) => IntroPage()),
+                                MaterialPageRoute(builder: (context) => const IntroPage()),
 
               );
               // Navigator.of(context).push(
@@ -143,7 +140,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
               // MaterialPageRoute(builder: (_) => ScanScreen(title: "Hele")));
               // MaterialPageRoute(builder: (_) => ScanScreen(title: "Hele")));
             },
-            child: ImageIcon(
+            child: const ImageIcon(
               Svg(
                 IconConstant.scan,
               ),

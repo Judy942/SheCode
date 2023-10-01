@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import './button.dart';
-import './qr_generate.dart';
 import 'qr_scanner.dart';
 
 class IntroPage extends StatelessWidget {

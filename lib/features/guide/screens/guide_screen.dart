@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import '../../../core/constants/color_constant.dart';
 import '../../../core/home/navigation_screen.dart';
 import '../../../core/constants/image_constant.dart';
@@ -62,7 +61,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               curve: Curves.easeIn,
                             );
                           },
-                          child: Icon(Icons.arrow_back)),
+                          child: const Icon(Icons.arrow_back)),
                     ),
                     AnimatedOpacity(
                       opacity: _activePage < _pages.length - 1 ? 1.0 : 0.0,
@@ -134,7 +133,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: CustomButton(
                   onPressed: () => {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => NavigationScreen()))
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => const NavigationScreen()))
                   },
                   child: const Text("Home"),
                 ),
@@ -146,8 +145,4 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     );
   }
 
-  bool _isLoggedIn() {
-    // @TODO: Check if user logged in or not
-    return false;
-  }
 }

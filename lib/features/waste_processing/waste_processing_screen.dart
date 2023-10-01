@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import './detail_waste_processing_screen.dart';
 
 class PengolahanScreen extends StatefulWidget {
   const PengolahanScreen({super.key});
@@ -32,7 +31,7 @@ class _PengolahanScreenState extends State<PengolahanScreen> {
       ),
 
 
-      body: Text("Empty", textAlign: TextAlign.center, style: TextStyle(fontSize: 20),),
+      body: const Text("Empty", textAlign: TextAlign.center, style: TextStyle(fontSize: 20),),
 
       // body: ListView.builder(
       //     itemCount: listTanaman.length,

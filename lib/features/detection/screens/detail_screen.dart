@@ -55,12 +55,12 @@ class _DetailScreenState extends State<DetailScreen> {
                   return SingleChildScrollView(
                     controller: scrollController,
                     child: Container(
-                      padding: EdgeInsets.all(12),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.all(12),
+                      decoration: const BoxDecoration(
                         color: Colors.white,
-                        borderRadius: new BorderRadius.only(
-                          topLeft: const Radius.circular(25.0),
-                          topRight: const Radius.circular(25.0),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(25.0),
+                          topRight: Radius.circular(25.0),
                         ),
                         // boxShadow: [
                         //   BoxShadow(
@@ -75,13 +75,13 @@ class _DetailScreenState extends State<DetailScreen> {
                       child: Column(children: [
                         Text(
                           widget.mapDetail.name!,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 24, fontWeight: FontWeight.w600),
                         ),
                         Container(
                           width: 350,
                           height: 300,
-                          padding: EdgeInsets.all(12),
+                          padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(8),
@@ -99,7 +99,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         DetailSectionWidget(
@@ -140,20 +140,20 @@ class DetailSectionWidget extends StatelessWidget {
         children: [
           Text(
             titleSection,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Text(
             valueSection,
-            style: TextStyle(
+            style: const TextStyle(
                 letterSpacing: 0.6,
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
                 color: Colors.black),
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Divider(

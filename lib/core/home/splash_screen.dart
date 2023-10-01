@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+
 import '../../core/constants/image_constant.dart';
 import '../../core/home/navigation_screen.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,9 +17,9 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     initialization();
     Future.delayed(
-        Duration(seconds: 6),
+        const Duration(seconds: 6),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (_) => NavigationScreen())));
+            context, MaterialPageRoute(builder: (_) => const NavigationScreen())));
   }
 
   void initialization() async {
@@ -40,9 +41,29 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.asset(
-          ImageConstant.splashLogo,
-          width: MediaQuery.of(context).size.width * 0.6,
+        
+        child: Column(
+          verticalDirection: VerticalDirection.down,
+          children: [
+            SizedBox(
+          height: MediaQuery.of(context).size.height * 0.3,
+        ),
+            Image.asset(
+              ImageConstant.splashLogo,
+              width: MediaQuery.of(context).size.width * 0.6,
+              
+            ),
+            SizedBox(
+          height: MediaQuery.of(context).size.height * 0.1,
+        ),
+            const Text(
+              'Loading ...',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
     );

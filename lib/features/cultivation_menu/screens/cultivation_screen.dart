@@ -15,7 +15,6 @@ class _CultivationScreenState extends State<CultivationScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     futureWasteModel = ReadJson.readJsonData();
   }
@@ -46,7 +45,7 @@ class _CultivationScreenState extends State<CultivationScreen> {
             if (snapshot.hasData) {
               return ListView.builder(
                   itemCount: snapshot.data!.length,
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     vertical: 16.0,
                     horizontal: 16.0,
                   ),
@@ -59,11 +58,11 @@ class _CultivationScreenState extends State<CultivationScreen> {
                                 }())));
                       },
                       child: Container(
-                        margin: EdgeInsets.symmetric(
+                        margin: const EdgeInsets.symmetric(
                           vertical: 8.0,
                           horizontal: 8.0,
                         ),
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                           vertical: 8.0,
                           horizontal: 8.0,
                         ),
@@ -75,7 +74,7 @@ class _CultivationScreenState extends State<CultivationScreen> {
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.2),
                                 blurRadius: 10,
-                                offset: Offset(0, 3),
+                                offset: const Offset(0, 3),
                               ),
                             ]),
                         child: Row(
@@ -83,7 +82,7 @@ class _CultivationScreenState extends State<CultivationScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(snapshot.data!.elementAt(index).name!),
-                            Icon(
+                            const Icon(
                               Icons.navigate_next,
                               size: 24,
                             )
@@ -93,7 +92,7 @@ class _CultivationScreenState extends State<CultivationScreen> {
                     );
                   });
             } else {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
           }),
     );

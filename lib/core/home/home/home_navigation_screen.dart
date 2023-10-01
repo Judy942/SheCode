@@ -6,7 +6,6 @@ import '../../../core/constants/icon_constant.dart';
 import '../../../core/constants/image_constant.dart';
 import '../../../features/cultivation_menu/screens/cultivation_screen.dart';
 import '../../../features/detection/screens/test/qr_generate.dart';
-import '../../../features/guide/screens/guide_screen.dart';
 import '../../../features/waste_processing/waste_processing_screen.dart';
 
 class HomeNavigationScreen extends StatefulWidget {
@@ -69,16 +68,16 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                          children: const [
                             Text(
                               "Waste Classification",
-                              style: const TextStyle(
+                              style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.w600),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               height: 4,
                             ),
-                            const Text(
+                            Text(
                               "The classification of waste",
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.w400),
@@ -114,10 +113,10 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
                                 builder: (context) => const CultivationScreen()));
                           } else {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => PengolahanScreen()));
+                                builder: (context) => const PengolahanScreen()));
                           }
                         },
-                        child: Container(
+                        child: SizedBox(
                           width: 60,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -172,18 +171,18 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
             // ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 // const Text(
                 //   "Hello",
                 //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 // ),
-                const SizedBox(
+                SizedBox(
                   height: 10,
                 ),
 
-                const Text(
+                Text(
                   """Wellcome to
-                  
+
         Waste Classification""",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),

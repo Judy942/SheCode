@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:qr_flutter/qr_flutter.dart';
-
 import './button.dart';
 import './tool.dart';
 
@@ -102,7 +100,7 @@ class _QRGenerateState extends State<QRGenerate> {
 
               //* generate button
               MyButton(
-                text: "Scan",
+                text: "Find",
                 onPressed: () {
                   HapticFeedback.heavyImpact();
                   setState(() {

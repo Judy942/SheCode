@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, sized_box_for_whitespace, unused_local_variable
 
 import 'dart:io';
 
@@ -26,11 +26,9 @@ class ScanScreen extends StatefulWidget {
 class _ScanScreenState extends State<ScanScreen> {
   bool _loading = true;
   File _image = File("");
-  List _output = [];
+  final List _output = [];
   final picker = ImagePicker();
-  late Interpreter _interpreter ;
-  
-
+  late Interpreter _interpreter;
 
   Future<List<WasteModel>?> readJsonData() async {
     try {
@@ -69,7 +67,6 @@ class _ScanScreenState extends State<ScanScreen> {
 
 // // final output = await Interpreter.fromAsset('assets/tf/My_tflite_model.tflite');
 
-
 //     // var output = await Tflite.runModelOnImage(
 //     //     path: image.path,
 //     //     numResults: 24,
@@ -83,7 +80,7 @@ class _ScanScreenState extends State<ScanScreen> {
 //     });
 //   }
 
-detectImage(File image) async {
+  detectImage(File image) async {
     setState(() {
       _loading = true; // Đặt trạng thái loading trước khi bắt đầu nhận diện
     });
@@ -97,8 +94,7 @@ detectImage(File image) async {
         _loading = false; // Sau khi xong, đặt trạng thái loading thành false
       });
     }
-}
-
+  }
 
   // loadModel() async {
   //   Interpreter  _interpreter = await Interpreter.fromAsset('assets/tf/My_tflite_model.tflite');
@@ -113,25 +109,23 @@ detectImage(File image) async {
   //   super.dispose();
   // }
 
-
- 
-
-loadModel() async {
-  try {
-     _interpreter = await Interpreter.fromAsset('assets/tf/My_tflite_model.tflite');
-    var labels = await rootBundle.loadString('assets/tf/labels.txt');
-    // Tại đây, bạn có thể làm bất kỳ việc nào cần thiết với _interpreter hoặc labels
-  } catch (e) {
-    print('Error loading model: $e');
+  loadModel() async {
+    try {
+      _interpreter =
+          await Interpreter.fromAsset('assets/tf/My_tflite_model.tflite');
+      var labels = await rootBundle.loadString('assets/tf/labels.txt');
+      // Tại đây, bạn có thể làm bất kỳ việc nào cần thiết với _interpreter hoặc labels
+    } catch (e) {
+      print('Error loading model: $e');
+    }
   }
-}
 
-@override
-void dispose() {
-  _interpreter.close(); // Đóng _interpreter khi không cần sử dụng nữa để giải phóng tài nguyên
-  super.dispose();
-}
-
+  @override
+  void dispose() {
+    _interpreter
+        .close(); // Đóng _interpreter khi không cần sử dụng nữa để giải phóng tài nguyên
+    super.dispose();
+  }
 
   // pickImage() async {
   //   // var image = await picker.getImage(source: ImageSource.camera);
@@ -151,21 +145,20 @@ void dispose() {
   // }
 
   pickImage() async {
-  final image = await picker.pickImage(source: ImageSource.gallery);
+    final image = await picker.pickImage(source: ImageSource.gallery);
 
-  if (image == null) {
-    return; // Không có hình ảnh được chọn
+    if (image == null) {
+      return; // Không có hình ảnh được chọn
+    }
+
+    final pickedImage = File(image.path);
+
+    setState(() {
+      _image = pickedImage;
+    });
+
+    detectImage(_image);
   }
-
-  final pickedImage = File(image.path);
-
-  setState(() {
-    _image = pickedImage;
-  });
-
-  detectImage(_image);
-}
-
 
   // pickGalleryImage() async {
   //   // var image = await picker.getImage(source: ImageSource.gallery);
@@ -182,25 +175,24 @@ void dispose() {
   // }
 
   pickGalleryImage() async {
-  final image = await picker.pickImage(source: ImageSource.gallery);
+    final image = await picker.pickImage(source: ImageSource.gallery);
 
-  if (image == null) {
-    return; // Không có hình ảnh được chọn
+    if (image == null) {
+      return; // Không có hình ảnh được chọn
+    }
+
+    final pickedImage = File(image.path);
+
+    setState(() {
+      _image = pickedImage;
+    });
+
+    detectImage(_image);
   }
-
-  final pickedImage = File(image.path);
-
-  setState(() {
-    _image = pickedImage;
-  });
-
-  detectImage(_image);
-}
-
 
   @override
   Widget build(BuildContext context) {
-    print(_output.toString() + "TEST");
+    print("${_output}TEST");
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -226,7 +218,7 @@ void dispose() {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return Container(
-                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -242,64 +234,61 @@ void dispose() {
                                       'assets/images/holder_image.png',
                                       fit: BoxFit.cover,
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 50,
                                     )
                                   ],
                                 ),
                               )
-                            : Container(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      width: 350,
-                                      height: 300,
-                                      padding: EdgeInsets.all(12),
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: ColorConstant.primaryColor
-                                                  .withOpacity(0.2),
-                                              blurRadius: 10,
-                                              offset: Offset(0, 3),
-                                            ),
-                                          ]),
-                                      child: Image.file(
-                                        _image,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Text(
-                                      _output.length == 0
-                                          ? "Unclassified image. Please try again"
-                                          : '${_output[0]['label']}',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 15,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    )
-                                  ],
+                            : Column(
+                              children: [
+                                Container(
+                                  width: 350,
+                                  height: 300,
+                                  padding: const EdgeInsets.all(12),
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(8),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: ColorConstant.primaryColor
+                                              .withOpacity(0.2),
+                                          blurRadius: 10,
+                                          offset: const Offset(0, 3),
+                                        ),
+                                      ]),
+                                  child: Image.file(
+                                    _image,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
-                              ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  _output.isEmpty
+                                      ? "Unclassified image. Please try again"
+                                      : '${_output[0]['label']}',
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                )
+                              ],
+                            ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 40),
+                        margin: const EdgeInsets.only(top: 40),
                         width: MediaQuery.of(context).size.width,
                         child: Column(
                           children: [
                             Visibility(
-                              visible: !_loading && _output.length == 0
-                                  ? false
-                                  : true,
+                              visible:
+                                  !_loading && _output.isEmpty ? false : true,
                               child: GestureDetector(
                                 onTap: () {
                                   _loading
@@ -317,7 +306,7 @@ void dispose() {
                                   width:
                                       MediaQuery.of(context).size.width * 0.7,
                                   alignment: Alignment.center,
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 14),
                                   decoration: BoxDecoration(
                                     color: ColorConstant.primaryColor,
@@ -325,7 +314,7 @@ void dispose() {
                                   ),
                                   child: Text(
                                     _loading ? 'Capture a Photo' : 'See Detail',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 16,
                                     ),
@@ -333,13 +322,13 @@ void dispose() {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 12,
                             ),
-                            !_loading && _output.length == 0
+                            !_loading && _output.isEmpty
                                 ? Container()
-                                : Text("Or"),
-                            SizedBox(
+                                : const Text("Or"),
+                            const SizedBox(
                               height: 12,
                             ),
                             GestureDetector(
@@ -356,7 +345,7 @@ void dispose() {
                               child: Container(
                                 width: MediaQuery.of(context).size.width * 0.7,
                                 alignment: Alignment.center,
-                                padding: EdgeInsets.symmetric(
+                                padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 14),
                                 decoration: BoxDecoration(
                                   color: ColorConstant.primaryColor,
@@ -364,7 +353,7 @@ void dispose() {
                                 ),
                                 child: Text(
                                   _loading ? 'Select a Photo' : "Retry",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 16,
                                   ),
@@ -378,7 +367,7 @@ void dispose() {
                   ),
                 );
               } else {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               }
             }),
       ),

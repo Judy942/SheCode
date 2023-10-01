@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import '../constants/color_constant.dart';
 import '../constants/image_constant.dart';
@@ -44,11 +46,11 @@ class _AboutNavigationScreenState extends State<AboutNavigationScreen> {
                         BoxShadow(
                           color: ColorConstant.primaryColor.withOpacity(0.2),
                           blurRadius: 16,
-                          offset: Offset(1, 1),
+                          offset: const Offset(1, 1),
                         ),
                       ]),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 16,
                     ),
                     child: Row(
@@ -57,22 +59,22 @@ class _AboutNavigationScreenState extends State<AboutNavigationScreen> {
                           ImageConstant.logoApp,
                           height: 40,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               "Classification of Waste",
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w600),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 4,
                             ),
-                            Text(
+                            const Text(
                               "Herbal Learning",
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.w400),
@@ -86,7 +88,7 @@ class _AboutNavigationScreenState extends State<AboutNavigationScreen> {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Column(
@@ -100,9 +102,9 @@ class _AboutNavigationScreenState extends State<AboutNavigationScreen> {
                     Text(
                       mapAbout.keys.elementAt(index),
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                          const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     Text(
@@ -115,7 +117,7 @@ class _AboutNavigationScreenState extends State<AboutNavigationScreen> {
                               ? ColorConstant.primaryColor
                               : Colors.black),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     Divider(
